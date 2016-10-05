@@ -2,5 +2,10 @@
   box-sizing: border-box;
 }
  html {
-   background: rgb(255,140,0);
+   background-image: url("/image/rplogo.jpg");
  }
+
+.heading__home {
+  color: rgb(255,0,0);
+  text-align: center;
+}
