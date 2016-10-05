@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
  html {
-   background-image: url("/image/rplogo.jpg");
+   /*background-image: url("/image/rplogo.jpg");*/
  }
 
 .heading__home {
