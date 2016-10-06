@@ -21486,6 +21486,11 @@
 	      "section",
 	      null,
 	      _react2.default.createElement(
+	        "h1",
+	        null,
+	        "RP Bjj Team"
+	      ),
+	      _react2.default.createElement(
 	        "form",
 	        { method: "POST", action: "#", onSubmit: this.onSubmitHandler },
 	        _react2.default.createElement(
@@ -27181,28 +27186,30 @@
 	exports.default = _react2.default.createClass({
 	  displayName: 'TakeClass',
 	  getDefaultProps: function getDefaultProps() {
-	    instructors: [{
-	      instructor__name: "Rodrigo Pinheiro",
-	      instructor__image: "rodbjj",
-	      techniques: {
-	        name: "Leg Lasso Spider Guard Smash Pass",
-	        video: "https://www.youtube.com/watch?v=yF3_FsKMUYM"
-	      }
-	    }, {
-	      instructor__name: "Arnold",
-	      instructor__image: "arnold",
-	      techniques: {
-	        name: "Side Control Escape",
-	        video: "https://www.youtube.com/watch?v=bDVO9kXu5Lc"
-	      }
-	    }, {
-	      instructor__name: "Eric",
-	      instructor__image: "eric",
-	      techniques: {
-	        name: "De La Riva Sweep",
-	        video: "https://www.youtube.com/watch?v=ylXALtSRdxk"
-	      }
-	    }];
+	    return {
+	      instructors: [{
+	        instructor__name: "Rodrigo Pinheiro",
+	        instructor__image: "rodbjj",
+	        techniques: {
+	          name: "Leg Lasso Spider Guard Smash Pass",
+	          video: "https://www.youtube.com/watch?v=yF3_FsKMUYM"
+	        }
+	      }, {
+	        instructor__name: "Arnold",
+	        instructor__image: "arnold",
+	        techniques: {
+	          name: "Side Control Escape",
+	          video: "https://www.youtube.com/watch?v=bDVO9kXu5Lc"
+	        }
+	      }, {
+	        instructor__name: "Eric",
+	        instructor__image: "eric",
+	        techniques: {
+	          name: "De La Riva Sweep",
+	          video: "https://www.youtube.com/watch?v=ylXALtSRdxk"
+	        }
+	      }]
+	    };
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
@@ -27214,7 +27221,7 @@
 	          { key: i },
 	          _react2.default.createElement(
 	            _reactRouter.Link,
-	            { to: '/Home/' + instructor.instructor__image + '/' + instructor.instructor__name + '/' + instructors[i].techniques.video },
+	            { to: '/Home/' + instructor.instructor__image + '/' + instructor.instructor__name + '/' + instructor.techniques.video },
 	            _react2.default.createElement('img', { src: './image/' + instructor.instructor__image + '.jpg' }),
 	            _react2.default.createElement(
 	              'h2',
