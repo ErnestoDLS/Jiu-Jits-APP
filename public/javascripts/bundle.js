@@ -27174,6 +27174,19 @@
 	      instructor__image: "eric.jpg",
 	      techniques: [name, video]
 	    }];
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      "ul",
+	      null,
+	      this.props.instructors.map(function (instructor, i) {
+	        return _react2.default.createElement(
+	          "li",
+	          { key: i },
+	          _react2.default.createElement("img", { src: "./image/" + instructor.instructor__image + ".jpg" })
+	        );
+	      })
+	    );
 	  }
 	});
 

@@ -1,11 +1,11 @@
 * {
   box-sizing: border-box;
 }
- html {
-   /*background-image: url("/image/rplogo.jpg");*/
- }
 
-.heading__home {
-  color: rgb(255,0,0);
+html {
+  background-image: url("https://pbs.twimg.com/profile_images/271923932/30nac02_400x400.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   text-align: center;
 }
