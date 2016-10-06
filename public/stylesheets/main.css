@@ -7,5 +7,6 @@ html {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  background-color: rgba(255, 128, 0, 0.9);
   text-align: center;
 }

@@ -27094,6 +27094,76 @@
 /* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _react2.default.createClass({
+	  displayName: "Home",
+	  onSubmitHandler: function onSubmitHandler(e) {
+	    var _this = this;
+	
+	    e.preventDefault();
+	    var usernameText = this.refs.username.value;
+	    var passwordText = this.refs.password.value;
+	    this.props.users.map(function (user) {
+	      if (user.username === usernameText) {
+	        if (user.password === passwordText) {
+	          _this.props.history.push("/TakeClass/" + user.ususername);
+	        }
+	      }
+	    });
+	  },
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      users: [{
+	        username: "ernesto",
+	        password: "bjj123"
+	      }, {
+	        username: "arnold",
+	        password: "ilovealex4eva"
+	      }]
+	    };
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      "section",
+	      null,
+	      _react2.default.createElement(
+	        "form",
+	        { method: "POST", action: "#", onSubmit: this.onSubmitHandler },
+	        _react2.default.createElement(
+	          "div",
+	          null,
+	          _react2.default.createElement("input", { type: "text", name: "username", placeholder: "User Name" })
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          null,
+	          _react2.default.createElement("input", { type: "password", name: "psw", placeholder: "Password" })
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          null,
+	          _react2.default.createElement("input", { type: "submit", value: "Log In" })
+	        )
+	      )
+	    );
+	  }
+	});
+
+/***/ },
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -27109,81 +27179,40 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = _react2.default.createClass({
-	  displayName: 'Home',
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        'h1',
-	        { className: 'heading__home' },
-	        'Home'
-	      ),
-	      _react2.default.createElement(
-	        'form',
-	        { action: ' ' },
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement('input', { type: 'text', name: 'firstname', placeholder: 'First name' })
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement('input', { type: 'text', name: 'lastname', placeholder: 'Last name' })
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
-	        )
-	      )
-	    );
-	  }
-	});
-
-/***/ },
-/* 236 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = _react2.default.createClass({
-	  displayName: "TakeClass",
+	  displayName: 'TakeClass',
 	  getDefaultProps: function getDefaultProps() {
 	    instructors: [{
 	      instructor__name: "Rodrigo Pinheiro",
-	      instructor__image: "rodbjj.jpg",
+	      instructor__image: "rodbjj",
 	      techniques: [name, video]
 	    }, {
 	      instructor__name: "Arnold",
-	      instructor__image: "arnold.jpg",
+	      instructor__image: "arnold",
 	      techniques: [name, video]
 	    }, {
 	      instructor__name: "Eric",
-	      instructor__image: "eric.jpg",
+	      instructor__image: "eric",
 	      techniques: [name, video]
 	    }];
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
-	      "ul",
+	      'ul',
 	      null,
 	      this.props.instructors.map(function (instructor, i) {
 	        return _react2.default.createElement(
-	          "li",
+	          'li',
 	          { key: i },
-	          _react2.default.createElement("img", { src: "./image/" + instructor.instructor__image + ".jpg" })
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/Home/' + instructor.instructor__image + '/' + instructor.instructor__name + '/' + instructor.techniques.name.video },
+	            _react2.default.createElement('img', { src: './image/' + instructor.instructor__image + '.jpg' }),
+	            _react2.default.createElement(
+	              'h2',
+	              null,
+	              instructor.instructor__name
+	            )
+	          )
 	        );
 	      })
 	    );
