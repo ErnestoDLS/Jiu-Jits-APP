@@ -3,12 +3,11 @@ import { render } from 'react-dom'
 import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 import { Link } from 'react-router'
 import Home from './lib/Home'
-import TakeClass from './lib/TakeClass'
+import Instructor from './lib/Instructor'
 
 render((
   <Router history={hashHistory}>
     <Route path="/" component={Home}/>
-    <Route path="/TakeClass/:username" component={TakeClass}/>
-
+    <Route path="/Instructor/:username" component={Instructor}/>
   </Router>
 ), document.getElementById('app'));

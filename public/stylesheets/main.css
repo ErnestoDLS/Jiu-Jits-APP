@@ -10,3 +10,8 @@ html {
   background-color: rgba(255, 128, 0, 0.9);
   text-align: center;
 }
+
+.instructor__li {
+  list-style: none;
+  text-align: left;
+}
