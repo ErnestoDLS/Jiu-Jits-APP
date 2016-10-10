@@ -62,13 +62,17 @@
 	
 	var _Instructor2 = _interopRequireDefault(_Instructor);
 	
+	var _TakeClass = __webpack_require__(237);
+	
+	var _TakeClass2 = _interopRequireDefault(_TakeClass);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRouter.Router,
 	  { history: _reactRouter.hashHistory },
 	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/Instructor/:username', component: _Instructor2.default })
+	  _react2.default.createElement(_reactRouter.Route, { path: '/Instructor/:username/:TakeClass', component: _Instructor2.default })
 	), document.getElementById('app'));
 
 /***/ },
@@ -27239,6 +27243,37 @@
 	            )
 	          );
 	        })
+	      )
+	    );
+	  }
+	});
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _react2.default.createClass({
+	  displayName: "TakeClass",
+	  render: function render() {
+	    return _react2.default.createElement(
+	      "div",
+	      null,
+	      _react2.default.createElement(
+	        "video",
+	        null,
+	        _react2.default.createElement("iframe", { width: "560", height: "315", src: "https://www.youtube.com/embed/yF3_FsKMUYM", frameborder: "0", allowfullscreen: true })
 	      )
 	    );
 	  }
