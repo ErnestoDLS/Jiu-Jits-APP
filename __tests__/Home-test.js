@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 import App from './lib/Home';
 
-jest.unmock('./lin/Home');
+jest.unmock('./lib/Home');
 
 describe('Boilerplate', () => {
 
