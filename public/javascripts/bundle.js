@@ -27273,7 +27273,12 @@
 	      "div",
 	      null,
 	      _react2.default.createElement(
-	        "video",
+	        "h1",
+	        null,
+	        "Choose class"
+	      ),
+	      _react2.default.createElement(
+	        "a",
 	        null,
 	        _react2.default.createElement("iframe", { width: "560", height: "315", src: "https://www.youtube.com/embed/yF3_FsKMUYM", frameborder: "0", allowfullscreen: true })
 	      )
