@@ -58,11 +58,11 @@
 	
 	var _Home2 = _interopRequireDefault(_Home);
 	
-	var _Instructor = __webpack_require__(236);
+	var _Instructor = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./lib/Instructor\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
 	var _Instructor2 = _interopRequireDefault(_Instructor);
 	
-	var _TakeClass = __webpack_require__(237);
+	var _TakeClass = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./lib/TakeClass\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
 	var _TakeClass2 = _interopRequireDefault(_TakeClass);
 	
@@ -27165,122 +27165,6 @@
 	          null,
 	          _react2.default.createElement("input", { type: "submit", value: "Log In" })
 	        )
-	      )
-	    );
-	  }
-	});
-
-/***/ },
-/* 236 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouter = __webpack_require__(172);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = _react2.default.createClass({
-	  displayName: 'Instructor',
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      instructors: [{
-	        instructor__name: "Rodrigo Pinheiro",
-	        instructor__image: "/image/rodbjj.jpg",
-	        techniques: {
-	          name: "Leg Lasso Spider Guard Smash Pass",
-	          video: ""
-	        }
-	      }, {
-	        instructor__name: "Marcelo",
-	        instructor__image: "",
-	        techniques: {
-	          name: "Passing the guard",
-	          video: ""
-	        }
-	      }, {
-	        instructor__name: "Riba",
-	        instructor__image: "ribmar",
-	        techniques: {
-	          name: "Taking the back",
-	          video: ""
-	        }
-	      }]
-	    };
-	  },
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        'h1',
-	        null,
-	        'Pick your instructor'
-	      ),
-	      _react2.default.createElement(
-	        'ul',
-	        { className: 'instructor__li' },
-	        this.props.instructors.map(function (instructor, i) {
-	          return _react2.default.createElement(
-	            'li',
-	            { key: i },
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/takeClass' },
-	              _react2.default.createElement('img', { className: 'inst__img', src: "http://rodrigopinheirobjj.com/wp-content/uploads/2015/02/0097.jpg" }),
-	              _react2.default.createElement(
-	                'h2',
-	                null,
-	                instructor.instructor__name
-	              )
-	            )
-	          );
-	        })
-	      ),
-	      this.props.children
-	    );
-	  }
-	});
-
-/***/ },
-/* 237 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = _react2.default.createClass({
-	  displayName: "TakeClass",
-	  render: function render() {
-	    return _react2.default.createElement(
-	      "div",
-	      null,
-	      _react2.default.createElement(
-	        "h1",
-	        null,
-	        "Take your pick"
-	      ),
-	      _react2.default.createElement(
-	        "a",
-	        null,
-	        _react2.default.createElement("iframe", { width: "560", height: "315", src: "https://www.youtube.com/embed/yF3_FsKMUYM", frameborder: "0", allowfullscreen: true })
 	      )
 	    );
 	  }

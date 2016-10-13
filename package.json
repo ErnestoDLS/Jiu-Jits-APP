@@ -11,7 +11,12 @@
     "watch-dev": "webpack --watch",
     "dev": "npm run watch-dev & npm start",
     "build": "webpack",
+<<<<<<< HEAD
     "heroku-postbuild": "webpack"
+=======
+    "heroku-postbuild": "webpack",
+    "test": "jest"
+>>>>>>> 93af8bf22d6acbdcb9b9f52f2a8382794af52ad6
   },
   "dependencies": {
     "babel-cli": "^6.14.0",
@@ -22,7 +27,13 @@
     "ejs": "2.4.1",
     "express": "4.13.3",
     "font-awesome": "^4.6.3",
+<<<<<<< HEAD
     "react": "^15.3.1",
+=======
+    "jest-cli": "^16.0.1",
+    "react": "^15.3.1",
+    "react-addons-test-utils": "^15.3.2",
+>>>>>>> 93af8bf22d6acbdcb9b9f52f2a8382794af52ad6
     "react-dom": "^15.3.1",
     "react-player": "^0.11.0",
     "react-router": "^2.8.1",
