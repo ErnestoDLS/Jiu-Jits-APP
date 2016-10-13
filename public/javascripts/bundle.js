@@ -27194,14 +27194,14 @@
 	    return {
 	      instructors: [{
 	        instructor__name: "Rodrigo Pinheiro",
-	        instructor__image: "rodbjj",
+	        instructor__image: "/image/rodbjj.jpg",
 	        techniques: {
 	          name: "Leg Lasso Spider Guard Smash Pass",
 	          video: ""
 	        }
 	      }, {
-	        instructor__name: "Thiago",
-	        instructor__image: "thiago",
+	        instructor__name: "Marcelo",
+	        instructor__image: "",
 	        techniques: {
 	          name: "Passing the guard",
 	          video: ""
@@ -27235,7 +27235,7 @@
 	            _react2.default.createElement(
 	              _reactRouter.Link,
 	              { to: '/takeClass' },
-	              _react2.default.createElement('img', { src: './image/' + instructor.instructor__image + '.jpg' }),
+	              _react2.default.createElement('img', { className: 'inst__img', src: "http://rodrigopinheirobjj.com/wp-content/uploads/2015/02/0097.jpg" }),
 	              _react2.default.createElement(
 	                'h2',
 	                null,
