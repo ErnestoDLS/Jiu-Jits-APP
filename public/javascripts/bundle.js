@@ -72,7 +72,8 @@
 	  _reactRouter.Router,
 	  { history: _reactRouter.hashHistory },
 	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/Instructor/:username/:TakeClass', component: _Instructor2.default })
+	  _react2.default.createElement(_reactRouter.Route, { path: '/Instructor/:username', component: _Instructor2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/takeClass', component: _TakeClass2.default })
 	), document.getElementById('app'));
 
 /***/ },
@@ -27233,7 +27234,7 @@
 	            { key: i },
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { to: '/Home/' + instructor.instructor__name + '/' + instructor.instructor__image + '/' + instructor.techniques.video },
+	              { to: '/takeClass' },
 	              _react2.default.createElement('img', { src: './image/' + instructor.instructor__image + '.jpg' }),
 	              _react2.default.createElement(
 	                'h2',
@@ -27243,7 +27244,8 @@
 	            )
 	          );
 	        })
-	      )
+	      ),
+	      this.props.children
 	    );
 	  }
 	});
@@ -27271,7 +27273,12 @@
 	      "div",
 	      null,
 	      _react2.default.createElement(
-	        "video",
+	        "h1",
+	        null,
+	        "Take your pick"
+	      ),
+	      _react2.default.createElement(
+	        "a",
 	        null,
 	        _react2.default.createElement("iframe", { width: "560", height: "315", src: "https://www.youtube.com/embed/yF3_FsKMUYM", frameborder: "0", allowfullscreen: true })
 	      )
