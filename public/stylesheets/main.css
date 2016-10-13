@@ -15,3 +15,9 @@ html {
   list-style: none;
   text-align: left;
 }
+
+.inst__img {
+  display: block;
+  height: 15%;
+  width: 15%;
+}

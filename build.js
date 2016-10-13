@@ -9,6 +9,7 @@ import TakeClass from './lib/TakeClass'
 render((
   <Router history={hashHistory}>
     <Route path="/" component={Home}/>
-    <Route path="/Instructor/:username/:TakeClass" component={Instructor}/>
+    <Route path="/Instructor/:username" component={Instructor}/>
+    <Route path="/takeClass" component={TakeClass}/>
   </Router>
 ), document.getElementById('app'));
