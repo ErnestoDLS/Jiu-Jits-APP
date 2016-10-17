@@ -73,7 +73,7 @@
 	  { history: _reactRouter.hashHistory },
 	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/Instructor/:username', component: _Instructor2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/takeClass', component: _TakeClass2.default })
+	  _react2.default.createElement(_reactRouter.Route, { path: '/TakeClass', component: _TakeClass2.default })
 	), document.getElementById('app'));
 
 /***/ },
@@ -27099,7 +27099,7 @@
 /* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -27109,62 +27109,27 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _Instructor = __webpack_require__(236);
+	
+	var _Instructor2 = _interopRequireDefault(_Instructor);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = _react2.default.createClass({
-	  displayName: "Home",
-	  onSubmitHandler: function onSubmitHandler(e) {
-	    var _this = this;
-	
-	    e.preventDefault();
-	    var usernameText = this.refs.username.value;
-	    var passwordText = this.refs.password.value;
-	    this.props.users.map(function (user) {
-	      if (user.username === usernameText) {
-	        if (user.password === passwordText) {
-	          _this.props.history.push("/Instructor/" + user.username);
-	        }
-	      }
-	    });
-	  },
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      users: [{
-	        username: "ernesto",
-	        password: "password"
-	      }, {
-	        username: "arnold",
-	        password: "password2"
-	      }]
-	    };
-	  },
+	  displayName: 'Home',
 	  render: function render() {
 	    return _react2.default.createElement(
-	      "section",
+	      'main',
 	      null,
 	      _react2.default.createElement(
-	        "h1",
+	        'h1',
 	        null,
-	        "RP Bjj Team"
+	        'Take your pick'
 	      ),
 	      _react2.default.createElement(
-	        "form",
-	        { method: "POST", action: "#", onSubmit: this.onSubmitHandler },
-	        _react2.default.createElement(
-	          "div",
-	          null,
-	          _react2.default.createElement("input", { type: "text", name: "username", placeholder: "User Name", ref: "username", autoComplete: "off" })
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          null,
-	          _react2.default.createElement("input", { type: "password", name: "psw", placeholder: "Password", ref: "password" })
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          null,
-	          _react2.default.createElement("input", { type: "submit", value: "Log In" })
-	        )
+	        'div',
+	        null,
+	        _react2.default.createElement(_Instructor2.default, null)
 	      )
 	    );
 	  }
@@ -27248,30 +27213,21 @@
 	      'div',
 	      null,
 	      _react2.default.createElement(
-	        'h1',
+	        'section',
 	        null,
-	        'Pick your instructor'
-	      ),
-	      _react2.default.createElement(
-	        'ul',
-	        { className: 'instructor__li' },
 	        this.props.instructors.map(function (instructor, i) {
 	          return _react2.default.createElement(
-	            'li',
-	            { key: i },
+	            'h2',
+	            { key: i, className: 'instructors__link' },
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { to: '/takeClass' },
-	              _react2.default.createElement('img', { className: 'inst__img', src: "http://rodrigopinheirobjj.com/wp-content/uploads/2015/02/0097.jpg" }),
-	              _react2.default.createElement(
-	                'h2',
-	                null,
-	                instructor.instructor__name
-	              )
+	              { id: instructor.id, onClick: this.onHandleClickChange, to: '/instructor/' + instructor.instructor__name },
+	              instructor.instructor__image
 	            )
 	          );
 	        }, this)
-	      )
+	      ),
+	      _react2.default.createElement(_TakeClass2.default, { instructor: this.state.currentInst })
 	    );
 	  }
 	});
@@ -27302,7 +27258,7 @@
 	      modalCover: false
 	    };
 	  },
-	  onHandleClick: function onHandleClick(e) {
+	  onHandleClickExpand: function onHandleClickExpand(e) {
 	    this.setState({
 	      currentVid: this.props.videos[e.target.id],
 	      currentVidId: e.target.id,
@@ -27333,27 +27289,36 @@
 	    }
 	  },
 	  render: function render() {
+	    var _this = this;
+	
 	    return _react2.default.createElement(
 	      'div',
 	      null,
 	      _react2.default.createElement(
-	        'h1',
+	        'section',
 	        null,
-	        'Technique'
-	      ),
-	      _react2.default.createElement(
-	        'a',
-	        { className: 'video' },
-	        _react2.default.createElement('iframe', { width: '560', height: '315', src: 'https://www.youtube.com/embed/yF3_FsKMUYM', frameborder: '0', allowfullscreen: true })
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          this.props.instructor.instructor__name
+	        ),
+	        this.props.instructors.map(function (image, i) {
+	          return _react2.default.createElement(
+	            'span',
+	            { key: i },
+	            _react2.default.createElement('img', { key: i, id: i, onClick: _this.onHandleClickExpand })
+	          );
+	        }, this)
 	      ),
 	      _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          'button',
-	          { className: 'next__btn' },
-	          'Next video'
-	        )
+	          'h2',
+	          { onClick: this.onHandleClickExitModal },
+	          'X'
+	        ),
+	        _react2.default.createElement('i', { className: 'fa fa-arrow-left fa-2x', onClick: this.onHandleClickPrev })
 	      )
 	    );
 	  }

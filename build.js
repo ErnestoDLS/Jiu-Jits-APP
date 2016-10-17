@@ -10,6 +10,6 @@ render((
   <Router history={hashHistory}>
     <Route path="/" component={Home}/>
     <Route path="/Instructor/:username" component={Instructor}/>
-    <Route path="/takeClass" component={TakeClass}/>
+    <Route path="/TakeClass" component={TakeClass}/>
   </Router>
 ), document.getElementById('app'));
