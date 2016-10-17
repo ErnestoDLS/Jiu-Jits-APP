@@ -72,7 +72,8 @@
 	  _reactRouter.Router,
 	  { history: _reactRouter.hashHistory },
 	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/Instructor/:username/:TakeClass', component: _Instructor2.default })
+	  _react2.default.createElement(_reactRouter.Route, { path: '/Instructor/:username', component: _Instructor2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/takeClass', component: _TakeClass2.default })
 	), document.getElementById('app'));
 
 /***/ },
@@ -27185,6 +27186,10 @@
 	
 	var _reactRouter = __webpack_require__(172);
 	
+	var _TakeClass = __webpack_require__(237);
+	
+	var _TakeClass2 = _interopRequireDefault(_TakeClass);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = _react2.default.createClass({
@@ -27194,26 +27199,49 @@
 	      instructors: [{
 	        instructor__name: "Rodrigo Pinheiro",
 	        instructor__image: "rodbjj",
+	        id: 0,
 	        techniques: {
 	          name: "Leg Lasso Spider Guard Smash Pass",
-	          video: ""
+	          videos: {
+	            tech1: "https://youtu.be/yF3_FsKMUYM?list=PLfmjHVojBYX2Kf2_HVyJNj9WJrK6y6vhD",
+	            tech2: "https://youtu.be/bql8UNTyDFY?list=PLfmjHVojBYX2Kf2_HVyJNj9WJrK6y6vhD"
+	          }
 	        }
 	      }, {
-	        instructor__name: "Thiago",
-	        instructor__image: "thiago",
+	        instructor__name: "Marcelo",
+	        instructor__image: "marcelo",
+	        id: 1,
 	        techniques: {
 	          name: "Passing the guard",
-	          video: ""
+	          videos: {
+	            tech1: "https://youtu.be/bDVO9kXu5Lc",
+	            tech2: "https://youtu.be/Lhk4EZl4jjE"
+	          }
 	        }
 	      }, {
 	        instructor__name: "Riba",
 	        instructor__image: "ribmar",
+	        id: 2,
 	        techniques: {
 	          name: "Taking the back",
-	          video: ""
+	          videos: {
+	            tech1: "https://youtu.be/VWSgxQIy0Y4",
+	            tech2: "https://youtu.be/rwkC6NrW_1I"
+	          }
 	        }
 	      }]
 	    };
+	  },
+	  componentWillMount: function componentWillMount() {
+	    this.setState({
+	      currentInst: this.props.instructors[0]
+	    });
+	  },
+	  onHandleClickChange: function onHandleClickChange(e) {
+	    this.setState({
+	      currentInst: this.props.instructors[e.target.id]
+	    });
+	    e.preventDefault();
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
@@ -27233,8 +27261,8 @@
 	            { key: i },
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { to: '/Home/' + instructor.instructor__name + '/' + instructor.instructor__image + '/' + instructor.techniques.video },
-	              _react2.default.createElement('img', { src: './image/' + instructor.instructor__image + '.jpg' }),
+	              { to: '/takeClass' },
+	              _react2.default.createElement('img', { className: 'inst__img', src: "http://rodrigopinheirobjj.com/wp-content/uploads/2015/02/0097.jpg" }),
 	              _react2.default.createElement(
 	                'h2',
 	                null,
@@ -27242,7 +27270,7 @@
 	              )
 	            )
 	          );
-	        })
+	        }, this)
 	      )
 	    );
 	  }
@@ -27252,7 +27280,7 @@
 /* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -27262,18 +27290,70 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRouter = __webpack_require__(172);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = _react2.default.createClass({
-	  displayName: "TakeClass",
+	  displayName: 'TakeClass',
+	  getInitialState: function getInitialState() {
+	    return {
+	      currentVid: this.props.instructors.videos[0],
+	      modalCover: false
+	    };
+	  },
+	  onHandleClick: function onHandleClick(e) {
+	    this.setState({
+	      currentVid: this.props.videos[e.target.id],
+	      currentVidId: e.target.id,
+	      modalCover: true
+	    });
+	  },
+	  onHandleClickExitModal: function onHandleClickExitModal(e) {
+	    this.setState({
+	      modalCover: false
+	    });
+	  },
+	  onHandleClickPrev: function onHandleClickPrev(e) {
+	    var newVidId = Number(this.refs.modalVid.id) - 1;
+	    if (newVidId < 0) {} else {
+	      this.setState({
+	        currentVid: this.props.instructors.videos[newVidId],
+	        currentVidId: newVidId
+	      });
+	    }
+	  },
+	  onHandleClickNext: function onHandleClickNext(e) {
+	    var newVidId = Number(this.refs.modalVid.id) + 1;
+	    if (newVidId >= this.props.instructors.videos.length) {} else {
+	      this.setState({
+	        currentVid: this.props.instructors.videos[newVidId],
+	        currentVidId: newVidId
+	      });
+	    }
+	  },
 	  render: function render() {
 	    return _react2.default.createElement(
-	      "div",
+	      'div',
 	      null,
 	      _react2.default.createElement(
-	        "video",
+	        'h1',
 	        null,
-	        _react2.default.createElement("iframe", { width: "560", height: "315", src: "https://www.youtube.com/embed/yF3_FsKMUYM", frameborder: "0", allowfullscreen: true })
+	        'Technique'
+	      ),
+	      _react2.default.createElement(
+	        'a',
+	        { className: 'video' },
+	        _react2.default.createElement('iframe', { width: '560', height: '315', src: 'https://www.youtube.com/embed/yF3_FsKMUYM', frameborder: '0', allowfullscreen: true })
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'next__btn' },
+	          'Next video'
+	        )
 	      )
 	    );
 	  }

@@ -15,3 +15,20 @@ html {
   list-style: none;
   text-align: left;
 }
+
+.inst__img {
+  display: block;
+  height: 15%;
+  width: 15%;
+}
+
+.next__btn {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.video {
+  display: inline-block;
+  padding-top: 130px;
+}
+Contact GitHub API Training Shop Blog About
