@@ -21,3 +21,13 @@ html {
   height: 15%;
   width: 15%;
 }
+
+.next__btn {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.video {
+  display: inline-block;
+  padding-top: 130px;
+}
